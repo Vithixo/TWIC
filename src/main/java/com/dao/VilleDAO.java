@@ -8,7 +8,13 @@ public interface VilleDAO {
 
 	public ArrayList<Ville> lister();
 	
-	public ArrayList<Ville> trouverCodePostal(String codePostal);
+	public ArrayList<Ville> trouver(String code,
+			String nom,
+			String codePostal,
+			String libelle,
+			String ligne5,
+			String latitude,
+			String longitude);
 	
 	public void creer(Ville ville);
 	
