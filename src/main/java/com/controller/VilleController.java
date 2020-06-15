@@ -20,6 +20,8 @@ class VilleController {
 
 	@Autowired
 	private VilleBLO villeService;
+	
+ 
 
 	// Methode GET
 	@RequestMapping(value = "/ville", method = RequestMethod.GET)
@@ -53,4 +55,6 @@ class VilleController {
 			System.out.println("Appel DELETE");
 			villeService.supprimerVille(id);
 		}	
+		
+	// Methode PUT
 }
