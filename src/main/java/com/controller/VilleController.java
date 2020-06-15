@@ -56,5 +56,5 @@ class VilleController {
 			villeService.supprimerVille(id);
 		}	
 		
-	// Methode PUT 
+	// Methode PUT tteyde
 }
