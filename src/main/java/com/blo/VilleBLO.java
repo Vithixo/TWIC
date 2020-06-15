@@ -16,4 +16,6 @@ public interface VilleBLO {
 			String longitude);
 	
 	public void creerVilles(ArrayList<Ville> villes);
+	
+	public void supprimerVille(String id);
 }

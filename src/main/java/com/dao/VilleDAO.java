@@ -18,5 +18,7 @@ public interface VilleDAO {
 	
 	public void creer(Ville ville);
 	
+	public void supprimer(String id);
+	
 	
 }

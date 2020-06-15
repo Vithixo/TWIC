@@ -45,4 +45,12 @@ class VilleController {
 		System.out.println("Appel POST");
 		villeService.creerVilles(villes);
 	}	
+	
+	// Methode DELETE
+		@RequestMapping(value = "/ville", method = RequestMethod.DELETE)
+		@ResponseBody
+		public void appelDelete(@RequestParam(value = "id") String id) {
+			System.out.println("Appel DELETE");
+			villeService.supprimerVille(id);
+		}	
 }

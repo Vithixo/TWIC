@@ -157,6 +157,27 @@ public class VilleDAOImpl implements VilleDAO{
 		return reponse;
 	}
 
+	@Override
+	public void supprimer(String id) {
+		Connection connection = JDBCConfiguration.getConnection();
+		
+		String requete = "DELETE ville_france WHERE id = "+id;
+		
+		try  {
+		   Statement stmt = connection.createStatement();
+		   stmt.executeUpdate(requete);
+
+		} catch (SQLException e) {
+			//logger.log(Level.WARN, "Échec du listage des objets.", e);
+			System.out.println(e);
+		} finally {
+			//fermetures(resultSet, preparedStatement, connection);
+		}
+		
+	}
+	
+	
+
 	
 	
 }

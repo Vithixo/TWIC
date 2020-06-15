@@ -38,5 +38,10 @@ public class VilleBLOImpl implements VilleBLO {
 			villeDAOService.creer(ville);
 		}
 	}
+	
+	@Override
+	public void supprimerVille(String id) {
+		villeDAOService.supprimer(id);
+	}
 
 }
