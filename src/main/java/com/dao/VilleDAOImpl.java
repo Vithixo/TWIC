@@ -128,8 +128,6 @@ public class VilleDAOImpl implements VilleDAO{
 
 	@Override
 	public void creer(Ville ville) {
-		Connection connection = JDBCConfiguration.getConnection();
-		
 		String requete = "INSERT INTO ville_france VALUES('"+ville.getCode()+"','"
 				+ville.getNom()+"','"
 				+ville.getCodePostale()+"','"
@@ -137,20 +135,7 @@ public class VilleDAOImpl implements VilleDAO{
 				+ville.getLigne5()+"','"
 				+ville.getLatitude()+"','"
 				+ville.getLongitude()+"')";
-		
-		try  {
-		   Statement stmt = connection.createStatement();
-		   stmt.executeUpdate(requete);
-
-		} catch (SQLException e) {
-			logger.log(Level.WARN, "Échec de la recuperation de ville", e);
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		executerRequete(requete);
 	}
 	
 	private String ajouterCondition(String variable, String valeur, Boolean nouveau) {
@@ -165,23 +150,25 @@ public class VilleDAOImpl implements VilleDAO{
 
 	@Override
 	public void supprimer(String id) {
+		String requete = "DELETE FROM ville_france WHERE "+CODE+"="+id;	
+		executerRequete(requete);
+	}
+	
+	private void executerRequete(String requete) {
 		Connection connection = JDBCConfiguration.getConnection();
-		
-		String requete = "DELETE ville_france WHERE id = "+id;
-		
 		try  {
-		   Statement stmt = connection.createStatement();
-		   stmt.executeUpdate(requete);
+			   Statement stmt = connection.createStatement();
+			   stmt.executeUpdate(requete);
 
-		} catch (SQLException e) {
-			logger.log(Level.WARN, "Échec de a suppression.", e);
-		} finally {
-			try {
-				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARN, "Échec de a suppression.", e);
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
-		}
 		
 	}
 	
