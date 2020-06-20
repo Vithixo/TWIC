@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +25,6 @@ public class VilleDAOImpl implements VilleDAO{
 	private static final String LONGITUDE = "Longitude";
 	
 	private static final String SELECT_ALL = "SELECT * FROM ville_france";
-	
-	private static NumberFormat formatter = new DecimalFormat("#0.00");
 
 	
 	
