@@ -33,7 +33,7 @@ public class VilleDAOImpl implements VilleDAO{
 		Connection connection = JDBCConfiguration.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		List<Ville> villes = new ArrayList<Ville>();
+		List<Ville> villes = new ArrayList<>();
 		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -59,7 +59,7 @@ public class VilleDAOImpl implements VilleDAO{
 		Connection connection = JDBCConfiguration.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		List<Ville> villes = new ArrayList<Ville>();
+		List<Ville> villes = new ArrayList<>();
 		String requete = SELECT_ALL;
 		Boolean nouvelleCondition = true;
 		if(code != null) {

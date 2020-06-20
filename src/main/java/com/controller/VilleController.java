@@ -32,7 +32,7 @@ class VilleController {
 			@RequestParam(required = false, value = "latitude") String latitude,
 			@RequestParam(required = false, value = "longitude") String longitude) {
 		System.out.println("Appel GET");
-		List<Ville> listeVilles = new ArrayList<Ville>();
+		List<Ville> listeVilles = new ArrayList<>();
 		listeVilles = villeService.getVilles(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 
 		return listeVilles;
