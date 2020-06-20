@@ -156,7 +156,7 @@ public class VilleDAOImpl implements VilleDAO{
 	
 	private void executerRequete(String requete) {
 		Connection connection = JDBCConfiguration.getConnection();
-		PreparedStatement preparedStatement = null;;
+		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(requete);
 			int statut = preparedStatement.executeUpdate();
