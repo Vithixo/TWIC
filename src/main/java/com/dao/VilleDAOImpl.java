@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import com.config.JDBCConfiguration;
 import com.dto.Ville;
@@ -25,7 +27,8 @@ public class VilleDAOImpl implements VilleDAO{
 	private static final String LONGITUDE = "Longitude";
 	
 	private static final String SELECT_ALL = "SELECT * FROM ville_france";
-
+	
+	private static Logger logger = Logger.getLogger("log");
 	
 	
 	@Override
@@ -45,10 +48,15 @@ public class VilleDAOImpl implements VilleDAO{
 				villes.add(recupererVille(resultSet));
 			}
 		} catch (SQLException e) {
-			//logger.log(Level.WARN, "Échec du listage des objets.", e);
-			System.out.println(e);
+		    logger.log(Level.WARN, "Échec du listage des objets.", e);
 		} finally {
-			//fermetures(resultSet, preparedStatement, connection);
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return villes;
 	}
@@ -103,10 +111,15 @@ public class VilleDAOImpl implements VilleDAO{
 				villes.add(recupererVille(resultSet));
 			}
 		} catch (SQLException e) {
-			//logger.log(Level.WARN, "Échec du listage des objets.", e);
-			System.out.println(e);
+			logger.log(Level.WARN, "Échec du listage des objets.", e);
 		} finally {
-			//fermetures(resultSet, preparedStatement, connection);
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return villes;
 	}
@@ -142,10 +155,14 @@ public class VilleDAOImpl implements VilleDAO{
 		   stmt.executeUpdate(requete);
 
 		} catch (SQLException e) {
-			//logger.log(Level.WARN, "Échec du listage des objets.", e);
-			System.out.println(e);
+			logger.log(Level.WARN, "Échec du listage des objets.", e);
 		} finally {
-			//fermetures(resultSet, preparedStatement, connection);
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -170,10 +187,14 @@ public class VilleDAOImpl implements VilleDAO{
 		   stmt.executeUpdate(requete);
 
 		} catch (SQLException e) {
-			//logger.log(Level.WARN, "Échec du listage des objets.", e);
-			System.out.println(e);
+			logger.log(Level.WARN, "Échec du listage des objets.", e);
 		} finally {
-			//fermetures(resultSet, preparedStatement, connection);
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

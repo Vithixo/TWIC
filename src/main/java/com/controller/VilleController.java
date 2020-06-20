@@ -31,9 +31,7 @@ class VilleController {
 			@RequestParam(required = false, value = "ligne5") String ligne5,
 			@RequestParam(required = false, value = "latitude") String latitude,
 			@RequestParam(required = false, value = "longitude") String longitude) {
-		System.out.println("Appel GET");
-		List<Ville> listeVilles = new ArrayList<>();
-		listeVilles = villeService.getVilles(code, nom, codePostal, libelle, ligne5, latitude, longitude);
+		List<Ville> listeVilles = villeService.getVilles(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 
 		return listeVilles;
 	}
@@ -41,8 +39,7 @@ class VilleController {
 	// Methode POST
 	@RequestMapping(value = "/ville", method = RequestMethod.POST)
 	@ResponseBody
-	public void appelPost(@RequestBody ArrayList<Ville> villes) {
-		System.out.println("Appel POST");
+	public void appelPost(@RequestBody List<Ville> villes) {
 		villeService.creerVilles(villes);
 	}
 
@@ -50,7 +47,6 @@ class VilleController {
 	@RequestMapping(value = "/ville", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void appelDelete(@RequestParam(value = "id") String id) {
-		System.out.println("Appel DELETE");
 		villeService.supprimerVille(id);
 	}
 
