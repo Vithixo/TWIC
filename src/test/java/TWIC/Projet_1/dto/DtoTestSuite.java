@@ -10,6 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	VilleTest.class
 })
 
+
 public class DtoTestSuite {
 
 
