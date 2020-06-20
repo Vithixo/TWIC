@@ -19,7 +19,7 @@ public class VilleBLOImpl implements VilleBLO {
 	@Override
 	public List<Ville> getVilles(String code,String nom,String codePostal,String libelle,
 			String ligne5,String latitude,String longitude) {
-		List<Ville> listeVille = new ArrayList<>();
+		List<Ville> listeVille;
 		
 		if(code==null && nom==null && codePostal==null && libelle==null &&
 				ligne5==null && latitude==null && longitude==null ) {

@@ -54,7 +54,6 @@ public class VilleDAOImpl implements VilleDAO{
 				preparedStatement.close();
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -117,7 +116,6 @@ public class VilleDAOImpl implements VilleDAO{
 				preparedStatement.close();
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -160,7 +158,6 @@ public class VilleDAOImpl implements VilleDAO{
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -192,7 +189,6 @@ public class VilleDAOImpl implements VilleDAO{
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

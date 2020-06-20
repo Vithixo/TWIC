@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +30,8 @@ class VilleController {
 			@RequestParam(required = false, value = "ligne5") String ligne5,
 			@RequestParam(required = false, value = "latitude") String latitude,
 			@RequestParam(required = false, value = "longitude") String longitude) {
-		List<Ville> listeVilles = villeService.getVilles(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 
-		return listeVilles;
+		return villeService.getVilles(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 	}
 
 	// Methode POST
