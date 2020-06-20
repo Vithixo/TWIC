@@ -51,7 +51,7 @@ public class VilleDAOImpl implements VilleDAO{
 			logger.log(Level.WARN, "Échec ", e);
 		} finally {
 			// fermeture des ressources utilisées
-			fermetures(preparedStatement, connection);
+			fermetures(resultSet,preparedStatement, connection);
 		}
 		return villes;
 	}
@@ -107,7 +107,7 @@ public class VilleDAOImpl implements VilleDAO{
 			logger.log(Level.WARN, "Échec ", e);
 		} finally {
 			// fermeture des ressources utilisées
-			fermetures(preparedStatement, connection);
+			fermetures(resultSet,preparedStatement, connection);
 		}
 		return villes;
 	}
