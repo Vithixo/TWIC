@@ -156,19 +156,19 @@ public class VilleDAOImpl implements VilleDAO{
 	
 	private void executerRequete(String requete) {
 		Connection connection = JDBCConfiguration.getConnection();
-		try  {
-			   Statement stmt = connection.createStatement();
-			   stmt.executeUpdate(requete);
-
-			} catch (SQLException e) {
-				logger.log(Level.WARN, "Échec de a suppression.", e);
-			} finally {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+		PreparedStatement preparedStatement = null;;
+		try {
+			preparedStatement = connection.prepareStatement(requete);
+			int statut = preparedStatement.executeUpdate();
+			if (statut == 0) {
+				throw new SQLException();
 			}
+		} catch (SQLException e) {
+			logger.log(Level.WARN, "Échec de la requete.", e);
+		} finally {
+			// fermeture des ressources utilisées
+			fermetures(preparedStatement, connection);
+		}
 		
 	}
 	
