@@ -1,14 +1,14 @@
 package com.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.dto.Ville;
 
 public interface VilleDAO {
 
-	public ArrayList<Ville> lister();
+	public List<Ville> lister();
 	
-	public ArrayList<Ville> trouver(String code,
+	public List<Ville> trouver(String code,
 			String nom,
 			String codePostal,
 			String libelle,

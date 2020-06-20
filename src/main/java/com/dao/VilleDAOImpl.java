@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -32,11 +33,11 @@ public class VilleDAOImpl implements VilleDAO{
 	
 	
 	@Override
-	public ArrayList<Ville> lister() {
+	public List<Ville> lister() {
 		Connection connection = JDBCConfiguration.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		ArrayList<Ville> villes = new ArrayList<Ville>();
+		List<Ville> villes = new ArrayList<Ville>();
 		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
@@ -57,12 +58,12 @@ public class VilleDAOImpl implements VilleDAO{
 	}
 	
 	@Override
-	public ArrayList<Ville> trouver(String code,String nom,String codePostal,String libelle,
+	public List<Ville> trouver(String code,String nom,String codePostal,String libelle,
 			String ligne5,String latitude,String longitude) {
 		Connection connection = JDBCConfiguration.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		ArrayList<Ville> villes = new ArrayList<Ville>();
+		List<Ville> villes = new ArrayList<Ville>();
 		String requete = SELECT_ALL;
 		Boolean nouvelleCondition = true;
 		if(code != null) {
