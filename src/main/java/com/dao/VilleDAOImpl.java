@@ -48,14 +48,10 @@ public class VilleDAOImpl implements VilleDAO{
 				villes.add(recupererVille(resultSet));
 			}
 		} catch (SQLException e) {
-		    logger.log(Level.WARN, "Échec du listage des objets.", e);
+			logger.log(Level.WARN, "Échec ", e);
 		} finally {
-			try {
-				preparedStatement.close();
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			// fermeture des ressources utilisées
+			fermetures(preparedStatement, connection);
 		}
 		return villes;
 	}
@@ -110,14 +106,10 @@ public class VilleDAOImpl implements VilleDAO{
 				villes.add(recupererVille(resultSet));
 			}
 		} catch (SQLException e) {
-			logger.log(Level.WARN, "Échec du listage des objets.", e);
+			logger.log(Level.WARN, "Échec ", e);
 		} finally {
-			try {
-				preparedStatement.close();
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			// fermeture des ressources utilisées
+			fermetures(preparedStatement, connection);
 		}
 		return villes;
 	}
@@ -194,6 +186,80 @@ public class VilleDAOImpl implements VilleDAO{
 		}
 		
 	}
+	
+	// ########################################################################################################
+		// #                            Methodes pour la fermeture des ressources                                 #
+		// ########################################################################################################
+		
+		/**
+		 * Ferme le resultset.
+		 * 
+		 * @param resultSet le resultSet à fermer.
+		 */
+		public static void fermeture(ResultSet resultSet) {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					logger.log(Level.WARN, "Echec de la fermeture du ResultSet : " + e.getMessage(), e);
+				}
+			}
+		}
+
+		/**
+		 * Ferme le statement.
+		 * 
+		 * @param statement le statement à fermer.
+		 */
+		public static void fermeture(Statement statement) {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					logger.log(Level.WARN, "Echec de la fermeture du Statement : " + e.getMessage(), e);
+				}
+			}
+		}
+
+		/**
+		 * Ferme la connection.
+		 * 
+		 * @param connection la connection à fermer.
+		 */
+		public static void fermeture(Connection connection) {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					logger.log(Level.WARN, "Echec de la fermeture de la connexion : " + e.getMessage(), e);
+				}
+			}
+		}
+
+		/**
+		 * Ferme le statement et la connection.
+		 * 
+		 * @param statement le statement à fermer.
+		 * @param connection la connection à fermer.
+		 */
+		public static void fermetures(Statement statement, Connection connection) {
+			fermeture(statement);
+			fermeture(connection);
+		}
+
+		/**
+		 * Ferme le resultSet, le statement et la connection.
+		 * 
+		 * @param resultSet le resultSet à fermer.
+		 * @param statement le statement à fermer.
+		 * @param connection la connection à fermer.
+		 */
+		public static void fermetures(ResultSet resultSet, Statement statement, Connection connection) {
+			fermeture(resultSet);
+			fermeture(statement);
+			fermeture(connection);
+		}
+		
 	
 	
 
