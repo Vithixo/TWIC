@@ -94,8 +94,6 @@ public class VilleDAOImpl implements VilleDAO{
 			nouvelleCondition = false;
 		}
 		
-		System.out.println(requete);
-		
 		try {
 			// création d'une connexion grâce à la DAOFactory placée en attribut de la
 			preparedStatement = connection.prepareStatement(requete);
@@ -145,7 +143,7 @@ public class VilleDAOImpl implements VilleDAO{
 		   stmt.executeUpdate(requete);
 
 		} catch (SQLException e) {
-			logger.log(Level.WARN, "Échec du listage des objets.", e);
+			logger.log(Level.WARN, "Échec de la recuperation de ville", e);
 		} finally {
 			try {
 				connection.close();
@@ -176,7 +174,7 @@ public class VilleDAOImpl implements VilleDAO{
 		   stmt.executeUpdate(requete);
 
 		} catch (SQLException e) {
-			logger.log(Level.WARN, "Échec du listage des objets.", e);
+			logger.log(Level.WARN, "Échec de a suppression.", e);
 		} finally {
 			try {
 				connection.close();
