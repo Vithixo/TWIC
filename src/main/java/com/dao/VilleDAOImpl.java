@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
@@ -15,15 +17,18 @@ import com.dto.Ville;
 @Repository
 public class VilleDAOImpl implements VilleDAO{
 	
-	private static String CODE = "Code_commune_INSEE";
-	private static String NOM = "Nom_commune";
-	private static String CODE_POSTAL = "Code_postal";
-	private static String LIBELLE = "Libelle_acheminement";
-	private static String LIGNE5 = "Ligne_5";
-	private static String LATITUDE = "Latitude";
-	private static String LONGITUDE = "Longitude";
+	private static final String CODE = "Code_commune_INSEE";
+	private static final String NOM = "Nom_commune";
+	private static final String CODE_POSTAL = "Code_postal";
+	private static final String LIBELLE = "Libelle_acheminement";
+	private static final String LIGNE5 = "Ligne_5";
+	private static final String LATITUDE = "Latitude";
+	private static final String LONGITUDE = "Longitude";
 	
-	private static String SELECT_ALL = "SELECT * FROM ville_france";
+	private static final String SELECT_ALL = "SELECT * FROM ville_france";
+	
+	private static NumberFormat formatter = new DecimalFormat("#0.00");
+
 	
 	
 	@Override
@@ -117,8 +122,8 @@ public class VilleDAOImpl implements VilleDAO{
 		ville.setCodePostale(resultSet.getInt(CODE_POSTAL));
 		ville.setLibelle(resultSet.getString(LIBELLE));
 		ville.setLigne5(resultSet.getString(LIGNE5));
-		ville.setLatitude(resultSet.getFloat(LATITUDE));
-		ville.setLongitude(resultSet.getFloat(LONGITUDE));
+		ville.setLatitude(resultSet.getDouble(LATITUDE));
+		ville.setLongitude(resultSet.getDouble(LONGITUDE));
 		
 		return ville;
 	}

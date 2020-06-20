@@ -7,8 +7,8 @@ public class Ville {
 	int codePostale;
 	String libelle;
 	String ligne5;
-	float latitude;
-	float longitude;
+	double latitude;
+	double longitude;
 
 	public int getCode() {
 		return code;
@@ -50,19 +50,19 @@ public class Ville {
 		this.ligne5 = ligne5;
 	}
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
