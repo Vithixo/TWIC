@@ -58,7 +58,7 @@ class VilleController {
 			@RequestParam(required = false, value = "ligne5") String ligne5,
 			@RequestParam(required = false, value = "latitude") String latitude,
 			@RequestParam(required = false, value = "longitude") String longitude) {
-		
+
 		villeService.changerVille(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 	}
 }

@@ -8,27 +8,25 @@ import org.springframework.stereotype.Service;
 import com.dao.VilleDAO;
 import com.dto.Ville;
 
-
 @Service
 public class VilleBLOImpl implements VilleBLO {
-	
+
 	@Autowired
 	VilleDAO villeDAOService;
 
 	@Override
-	public List<Ville> getVilles(String code,String nom,String codePostal,String libelle,
-			String ligne5,String latitude,String longitude) {
+	public List<Ville> getVilles(String code, String nom, String codePostal, String libelle, String ligne5,
+			String latitude, String longitude) {
 		List<Ville> listeVille;
-		
-		if(code==null && nom==null && codePostal==null && libelle==null &&
-				ligne5==null && latitude==null && longitude==null ) {
+
+		if (code == null && nom == null && codePostal == null && libelle == null && ligne5 == null && latitude == null
+				&& longitude == null) {
 			listeVille = villeDAOService.lister();
-			
-		}else {
-			listeVille = villeDAOService.trouver(code,nom,codePostal,libelle,
-					ligne5,latitude,longitude);
+
+		} else {
+			listeVille = villeDAOService.trouver(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 		}
-		
+
 		return listeVille;
 	}
 
@@ -38,16 +36,16 @@ public class VilleBLOImpl implements VilleBLO {
 			villeDAOService.creer(ville);
 		}
 	}
-	
+
 	@Override
 	public void supprimerVille(String id) {
 		villeDAOService.supprimer(id);
 	}
-	
+
 	@Override
-	public void changerVille(String code,String nom,String codePostal,String libelle,
-			String ligne5,String latitude,String longitude) {
-		
+	public void changerVille(String code, String nom, String codePostal, String libelle, String ligne5, String latitude,
+			String longitude) {
+
 		villeDAOService.changerVille(code, nom, codePostal, libelle, ligne5, latitude, longitude);
 	}
 

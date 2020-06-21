@@ -156,13 +156,13 @@ public class VilleDAOImpl implements VilleDAO {
 	}
 
 	private String ajouterChangement(String variable, String valeur) {
-		String reponse="";
+		String reponse = "";
 		if (valeur != null) {
 			if (premierChangement) {
-				reponse = variable + " = '"+valeur+"'";
+				reponse = variable + " = '" + valeur + "'";
 				premierChangement = false;
 			} else {
-				reponse = " , " + variable + " = '"+ valeur+"'";
+				reponse = " , " + variable + " = '" + valeur + "'";
 			}
 		}
 		return reponse;
