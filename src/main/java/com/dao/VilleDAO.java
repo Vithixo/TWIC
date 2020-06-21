@@ -19,6 +19,14 @@ public interface VilleDAO {
 	public void creer(Ville ville);
 	
 	public void supprimer(String id);
+
+	public void changerVille(String code, 
+			String nom, 
+			String codePostal, 
+			String libelle, 
+			String ligne5, 
+			String latitude,
+			String longitude);
 	
 	
 }

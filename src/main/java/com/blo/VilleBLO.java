@@ -18,4 +18,12 @@ public interface VilleBLO {
 	public void creerVilles(List<Ville> villes);
 	
 	public void supprimerVille(String id);
+
+	public void changerVille(String code,
+			String nom, 
+			String codePostal, 
+			String libelle, 
+			String ligne5,
+			String latitude, 
+			String longitude);
 }

@@ -43,5 +43,12 @@ public class VilleBLOImpl implements VilleBLO {
 	public void supprimerVille(String id) {
 		villeDAOService.supprimer(id);
 	}
+	
+	@Override
+	public void changerVille(String code,String nom,String codePostal,String libelle,
+			String ligne5,String latitude,String longitude) {
+		
+		villeDAOService.changerVille(code, nom, codePostal, libelle, ligne5, latitude, longitude);
+	}
 
 }

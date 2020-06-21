@@ -44,9 +44,21 @@ class VilleController {
 	// Methode DELETE
 	@RequestMapping(value = "/ville", method = RequestMethod.DELETE)
 	@ResponseBody
-	public void appelDelete(@RequestParam(value = "id") String id) {
-		villeService.supprimerVille(id);
+	public void appelDelete(@RequestParam(value = "code") String code) {
+		villeService.supprimerVille(code);
 	}
 
-	// Methode PUT tteyde
+	// Methode PUT
+	@RequestMapping(value = "/ville", method = RequestMethod.PUT)
+	@ResponseBody
+	public void appelPut(@RequestParam(value = "code") String code,
+			@RequestParam(required = false, value = "nom") String nom,
+			@RequestParam(required = false, value = "codePostal") String codePostal,
+			@RequestParam(required = false, value = "libelle") String libelle,
+			@RequestParam(required = false, value = "ligne5") String ligne5,
+			@RequestParam(required = false, value = "latitude") String latitude,
+			@RequestParam(required = false, value = "longitude") String longitude) {
+		
+		villeService.changerVille(code, nom, codePostal, libelle, ligne5, latitude, longitude);
+	}
 }
